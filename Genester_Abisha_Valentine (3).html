@@ -138,19 +138,23 @@
   }
 
   function hearts() {
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.innerHTML = "❤️";
-      heart.innerHTML = "Abi";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.bottom = "0px";
-      document.body.appendChild(heart);
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
 
-      setTimeout(() => {
-        heart.remove();
-      }, 4000);
-    }, 300);
+    // ✨ + 🦋 emojis
+    heart.innerHTML = "✨🦋";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.bottom = "0px";
+    heart.style.fontSize = "26px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 4000);
+  }, 300);
   }
 </script>
 

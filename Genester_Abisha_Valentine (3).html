@@ -10,9 +10,75 @@
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
   }
 
-  /* your existing CSS here */
+  .container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    max-width: 350px;
+    animation: pop 1s ease;
+  }
+
+  @keyframes pop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  h1 {
+    color: #ff4d6d;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 18px;
+    color: #333;
+  }
+
+  .buttons {
+    margin-top: 20px;
+  }
+
+  button {
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .yes {
+    background: #ff4d6d;
+    color: white;
+    margin-right: 10px;
+  }
+
+  .no {
+    background: #ddd;
+  }
+
+  .yes:hover {
+    transform: scale(1.1);
+  }
+
+  .couple {
+    font-size: 40px;
+    margin-top: 15px;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
 
   .heart {
     position: fixed;
@@ -24,26 +90,6 @@
   @keyframes float {
     0% { transform: translateY(0); opacity: 1; }
     100% { transform: translateY(-800px); opacity: 0; }
-  }
-
-  /* 👇 PASTE STEP 2 CSS BELOW THIS LINE */
-
-  #noMessage {
-    margin-top: 15px;
-    font-size: 16px;
-    color: #ff4d6d;
-    animation: slideDown 0.4s ease;
-  }
-
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 </style>
 </head>
@@ -58,9 +104,9 @@
     <button class="yes" onclick="sayYes()">Yes ❤️</button>
     <button class="no" onclick="sayNo()">No 🙈</button>
   </div>
-
-  <p id="noMessage" style="display:none;"></p>
-
+  
+<p id="noMessage" style="display:none;"></p>
+  
   <div class="couple">👩‍❤️‍👨</div>
 </div>
 
@@ -79,26 +125,27 @@
   let noCount = 0;
 
   function sayNo() {
-  const msg = document.getElementById("noMessage");
-  msg.innerText = funnyMessages[noCount % funnyMessages.length];
-  msg.style.display = "block";
-  noCount++;
-}
-  function sayyes-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 60vh;
-  text-align: center;
-}
+    alert(funnyMessages[noCount % funnyMessages.length]);
+    noCount++;
+  }
+
+  function sayYes() {
+    document.getElementById("card").innerHTML = `
+      <h1>Yay! 🎉</h1>
+      <p>Heart officially stolen 😌</p>
+      <p>Now no return policy, no exchange, lifetime warranty only 💕😂</p>
+      <div class="couple">💑💖💑</div>
+    `;
+    hearts();
+  }
+
   function hearts() {
   setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";
 
     // ✨ + 🦋 emojis
-    heart.innerHTML = "✨","🦋";
+    heart.innerHTML = "✨🦋";
 
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.bottom = "0px";

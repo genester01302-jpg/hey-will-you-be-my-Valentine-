@@ -125,9 +125,32 @@
   let noCount = 0;
 
   function sayNo() {
-    alert(funnyMessages[noCount % funnyMessages.length]);
-    noCount++;
+  const msg = document.getElementById("noMessageOutside");
+  msg.innerText = funnyMessages[noCount % funnyMessages.length];
+  msg.style.display = "block";
+  noCount++;
+}   
+    #noMessageOutside {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #ff4d6d;
+  text-align: center;
+  display: none;
+  animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+}
 
   function sayYes() {
     document.getElementById("card").innerHTML = `

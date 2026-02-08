@@ -84,16 +84,14 @@
   msg.style.display = "block";
   noCount++;
 }
-  function sayYes() {
-    document.getElementById("card").innerHTML = `
-      <h1>Yay! 🎉</h1>
-      <p>Heart officially stolen 😌</p>
-      <p>Now no return policy, no exchange, lifetime warranty only 💕😂</p>
-      <div class="couple">💑💖💑</div>
-    `;
-    hearts();
-  }
-
+  function sayyes-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  text-align: center;
+}
   function hearts() {
   setInterval(() => {
     const heart = document.createElement("div");
